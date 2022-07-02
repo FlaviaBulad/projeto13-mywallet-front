@@ -4,11 +4,8 @@ This is the Front-end of the 13th project for Driven Education's Fullstack Devel
 
 ## Description
 
-a wallet-like mobile application where the user can register their income and expenses and see the final balance. 
+a wallet-like mobile application where the user can register their income and expenses and see the final balance.
 
 ### `Usage`
 
 Soon.
-
-
-

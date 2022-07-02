@@ -1,3 +1,1 @@
-export default function BalancePage(){
-    
-}
+export default function BalancePage() {}
