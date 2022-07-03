@@ -22,23 +22,25 @@ export default function LoginPage() {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   }
 
-  function LoginDataToAPI(e) {
+  async function LoginDataToAPI(e) {
     e.preventDefault();
     setIsLoading(true);
 
-    const promise = axios.post("http://localhost:5000/login", { ...loginData });
-    promise.then((response) => {
+    try {
+      const response = await axios.post("http://localhost:5000/login", {
+        ...loginData,
+      });
       setIsLoading(false);
-      const { token, name } = response.data;
-      setUser({ name, token });
-      navigate("/balance");
-    });
 
-    promise.catch((err) => {
+      const { token, name } = response.data;
+
+      setUser({ name, token });
+
+      navigate("/balance");
+    } catch (error) {
       setIsLoading(false);
-      const errMessage = err.response.statusText;
-      alert(`Erro ao logar: ${errMessage}`);
-    });
+      alert(`Erro ao logar: ${error}`);
+    }
   }
 
   function BuildingLoginForms() {

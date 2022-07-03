@@ -26,24 +26,23 @@ export default function SignUpPage() {
     setSignUpData({ ...signUpData, [e.target.name]: e.target.value }); //filling the sign up object with the forms data
   }
 
-  function SignUpDataToAPI(e) {
+  async function SignUpDataToAPI(e) {
     //sending all the data to api and redirectioning user to login page if successfull
     e.preventDefault();
     setIsLoading(true);
 
-    const promise = axios.post("https://localhost:5000/sign-up", {
-      ...signUpData,
-    });
-    promise.then(() => {
+    try {
+      await axios.post("https://localhost:5000/sign-up", {
+        ...signUpData,
+      });
+
       setIsLoading(false);
       alert("Cadastro criado com sucesso!");
       navigate("/");
-    });
-    promise.catch((err) => {
+    } catch (error) {
       setIsLoading(false);
-      const errMessage = err.response.statusText;
-      alert(`Erro ao cadastrar: ${errMessage}`);
-    });
+      alert(`Erro ao cadastrar: ${error}`);
+    }
   }
 
   function BuildingSignUpForms() {

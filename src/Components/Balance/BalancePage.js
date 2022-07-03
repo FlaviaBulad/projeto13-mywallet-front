@@ -8,22 +8,25 @@ import Spinner from "../../Libs/Spinner";
 export default function BalancePage() {
   const { user } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(false);
-
-  const navigate = useNavigate();
+  const [balance, setBalance] = useState([]);
 
   useEffect(() => {
-    const promise = axios.get("http://localhost:5000/balance", {
-      headers: {
-        Authorization: `Bearer ${user.token}`,
-      },
-    });
-    promise.then(() => {
-      setIsLoading(false);
-    });
-    promise.catch((err) => {
-      setIsLoading(false);
-      const errMessage = err.response.statusText;
-      alert(`Erro ao pegar o balanço: ${errMessage}`);
-    });
+    async function sessionDataToAPI() {
+      try {
+        const config = { headers: { Authorization: `Bearer ${user.token}` } };
+
+        const response = await axios.get(
+          "http://localhost:5000/balance",
+          config
+        );
+        setIsLoading(false);
+        setBalance(response.data);
+      } catch (error) {
+        setIsLoading(false);
+        alert(`Erro ao pegar o balanço: ${error}`);
+      }
+    }
+
+    sessionDataToAPI();
   }, []);
 }

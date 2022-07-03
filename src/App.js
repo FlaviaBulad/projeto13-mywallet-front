@@ -13,11 +13,10 @@ import "./styles/reset.css";
 import "./styles/index.css";
 
 function App() {
-  const [token, setToken] = useState(null);
   const [user, setUser] = useState(null);
 
   return (
-    <UserContext.Provider value={{ token, setToken, user, setUser }}>
+    <UserContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LoginPage />} />
