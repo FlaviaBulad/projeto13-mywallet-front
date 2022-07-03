@@ -88,7 +88,7 @@ export default function LoginPage() {
 
 //style
 const Container = styled.div`
-  margin-top: 251px;
+  margin-top: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;

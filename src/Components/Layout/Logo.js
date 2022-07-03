@@ -8,7 +8,7 @@ const Logo = styled.div`
   position: absolute;
   width: 147px;
   height: 50px;
-  top: 210px;
+  top: 100px;
   font-family: "Saira Stencil One";
   font-style: normal;
   font-weight: 400;
