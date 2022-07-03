@@ -2,7 +2,9 @@ import styled from "styled-components";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Spinner from "./libs/spinner/Spinner.js";
+import Spinner from "../../Libs/Spinner";
+
+import LogoComponent from "../Layout/Logo";
 
 export default function SignUpPage() {
   //Main function,reders the sigh up page
@@ -45,6 +47,7 @@ export default function SignUpPage() {
   function BuildingSignUpForms() {
     return (
       <>
+        <LogoComponent />
         <Form onSubmit={SignUpDataToAPI}>
           <Input
             type="text"
@@ -106,13 +109,11 @@ export default function SignUpPage() {
 
 //style
 const Container = styled.div`
+  margin-top: 251px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  img {
-    margin-top: 80px;
-  }
 `;
 
 const Form = styled.form`
@@ -124,34 +125,33 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-  width: 300px;
-  height: 45px;
+  width: 326px;
+  height: 58px;
   margin-bottom: 6px;
   padding: 10px;
   border: 1px solid #d5d5d5;
   border-radius: 5px;
   background-color: "#FFFFFF;";
   &::placeholder {
-    color: #dbdbdb;
-    font-family: "Lexend Deca";
     font-style: normal;
     font-weight: 400;
-    font-size: 19.976px;
-    line-height: 25px;
+    font-size: 20px;
+    line-height: 23px;
+
+    color: #000000;
   }
 `;
 
 const Button = styled.button`
-  width: 300px;
-  height: 45px;
+  width: 326px;
+  height: 46px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
-  border-radius: 4.6px;
-  background: #52b6ff;
+  border-radius: 5px;
+  background: #a328d6;
 
-  font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 400;
   font-size: 20.976px;
@@ -161,14 +161,12 @@ const Button = styled.button`
 `;
 
 const StyledLink = styled(Link)`
-  width: 210px;
-  height: 17px;
-  font-family: "Lexend Deca";
+  width: 227px;
+  height: 18px;
   font-style: normal;
-  font-weight: 400;
-  font-size: 13.976px;
-  line-height: 17px;
-  text-align: center;
-  text-decoration-line: underline;
-  color: #52b6ff;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  text-decoration: none;
+  color: #ffffff;
 `;
