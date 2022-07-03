@@ -30,17 +30,19 @@ export default function SignUpPage() {
     //sending all the data to api and redirectioning user to login page if successfull
     e.preventDefault();
     setIsLoading(true);
+
     const promise = axios.post("https://localhost:5000/sign-up", {
       ...signUpData,
     });
     promise.then(() => {
       setIsLoading(false);
+      alert("Cadastro criado com sucesso!");
       navigate("/");
     });
     promise.catch((err) => {
       setIsLoading(false);
       const errMessage = err.response.statusText;
-      alert(`Post sign-up error: ${errMessage}`);
+      alert(`Erro ao cadastrar: ${errMessage}`);
     });
   }
 
