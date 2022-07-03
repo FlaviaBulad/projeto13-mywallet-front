@@ -15,7 +15,7 @@ export default function LoginPage() {
 
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const { setToken } = useContext(UserContext); //contextAPI
+  const { setUser } = useContext(UserContext); //contextAPI
   const [loginData, setLoginData] = useState(loginDataObject);
 
   function OnChange(e) {
@@ -29,14 +29,15 @@ export default function LoginPage() {
     const promise = axios.post("http://localhost:5000/login", { ...loginData });
     promise.then((response) => {
       setIsLoading(false);
-      setToken(response.data.token);
+      const { token, name } = response.data;
+      setUser({ name, token });
       navigate("/balance");
     });
 
     promise.catch((err) => {
       setIsLoading(false);
       const errMessage = err.response.statusText;
-      alert(`Post login error: ${errMessage}`);
+      alert(`Erro ao logar: ${errMessage}`);
     });
   }
 
