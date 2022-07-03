@@ -13,9 +13,9 @@ export default function LoginPage() {
     password: "",
   };
 
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const { token, setToken } = useContext(UserContext); //contextAPI
+  const { setToken } = useContext(UserContext); //contextAPI
   const [loginData, setLoginData] = useState(loginDataObject);
 
   function OnChange(e) {
@@ -30,7 +30,7 @@ export default function LoginPage() {
     promise.then((response) => {
       setIsLoading(false);
       setToken(response.data.token);
-      //   navigate("/balance");
+      navigate("/balance");
     });
 
     promise.catch((err) => {
