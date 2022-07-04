@@ -30,7 +30,7 @@ export default function ExpensesPage() {
     };
 
     try {
-      await axios.post("http://localhost:5000/expenses", body, headers);
+      await axios.post("http://localhost:5000/balance", body, headers);
 
       setIsLoading(false);
       alert("Registrado com sucesso!");
@@ -96,7 +96,6 @@ const Title = styled.h1`
   left: 24px;
   top: 25px;
 
-  font-family: "Raleway";
   font-style: normal;
   font-weight: 700;
   font-size: 26px;
