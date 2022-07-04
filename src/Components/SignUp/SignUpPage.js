@@ -32,7 +32,7 @@ export default function SignUpPage() {
     setIsLoading(true);
 
     try {
-      await axios.post("https://localhost:5000/sign-up", {
+      await axios.post("https://drivenmywalletback.herokuapp.com/sign-up", {
         ...signUpData,
       });
 

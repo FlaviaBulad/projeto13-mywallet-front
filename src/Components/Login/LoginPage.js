@@ -27,9 +27,12 @@ export default function LoginPage() {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:5000/login", {
-        ...loginData,
-      });
+      const response = await axios.post(
+        "https://drivenmywalletback.herokuapp.com/login",
+        {
+          ...loginData,
+        }
+      );
       setIsLoading(false);
 
       const { token, name } = response.data;

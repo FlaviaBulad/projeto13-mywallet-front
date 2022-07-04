@@ -30,7 +30,11 @@ export default function ExpensesPage() {
     };
 
     try {
-      await axios.post("http://localhost:5000/balance", body, headers);
+      await axios.post(
+        "https://drivenmywalletback.herokuapp.com/balance",
+        body,
+        headers
+      );
 
       setIsLoading(false);
       alert("Registrado com sucesso!");
