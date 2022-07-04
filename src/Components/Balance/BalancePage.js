@@ -12,6 +12,7 @@ export default function BalancePage() {
 
   useEffect(() => {
     async function sessionDataToAPI() {
+      setIsLoading(true);
       try {
         const config = { headers: { Authorization: `Bearer ${user.token}` } };
 
